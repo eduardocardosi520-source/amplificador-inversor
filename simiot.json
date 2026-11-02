@@ -1,0 +1,466 @@
+{
+  "artifacts": {},
+  "breadboard": {
+    "placements": {
+      "cmp_fg": {
+        "rotation": 0,
+        "x": 620,
+        "y": 20
+      },
+      "cmp_gnd": {
+        "rotation": 0,
+        "x": 620,
+        "y": 260
+      },
+      "cmp_in": {
+        "rotation": 0,
+        "x": 780,
+        "y": 260
+      },
+      "cmp_out": {
+        "rotation": 0,
+        "x": 940,
+        "y": 260
+      },
+      "cmp_r1": {
+        "rotation": 0,
+        "x": 780,
+        "y": 20
+      },
+      "cmp_r2": {
+        "rotation": 0,
+        "x": 940,
+        "y": 20
+      },
+      "cmp_u1": {
+        "rotation": 0,
+        "x": 620,
+        "y": 140
+      },
+      "cmp_vn": {
+        "rotation": 0,
+        "x": 940,
+        "y": 140
+      },
+      "cmp_vp": {
+        "rotation": 0,
+        "x": 780,
+        "y": 140
+      }
+    },
+    "unit": "css-px",
+    "wires": {
+      "conn_fg_gnd": {
+        "color": "black",
+        "points": []
+      },
+      "conn_fg_r1": {
+        "color": "green",
+        "points": []
+      },
+      "conn_in": {
+        "color": "green",
+        "points": []
+      },
+      "conn_inn_r2": {
+        "color": "blue",
+        "points": []
+      },
+      "conn_inp_gnd": {
+        "color": "black",
+        "points": []
+      },
+      "conn_out": {
+        "color": "blue",
+        "points": []
+      },
+      "conn_r1_inn": {
+        "color": "green",
+        "points": []
+      },
+      "conn_r2_out": {
+        "color": "blue",
+        "points": []
+      },
+      "conn_vn": {
+        "color": "purple",
+        "points": []
+      },
+      "conn_vp": {
+        "color": "red",
+        "points": []
+      }
+    }
+  },
+  "components": [
+    {
+      "definitionId": "function-generator",
+      "definitionVersion": 1,
+      "id": "cmp_fg",
+      "params": {
+        "amplitude": 0.5,
+        "duty": 50,
+        "frequency": 1000,
+        "offset": 0,
+        "wave": "sine"
+      },
+      "refDes": "FG1"
+    },
+    {
+      "definitionId": "resistor",
+      "definitionVersion": 1,
+      "id": "cmp_r1",
+      "params": {
+        "resistance": 1000
+      },
+      "refDes": "R1"
+    },
+    {
+      "definitionId": "resistor",
+      "definitionVersion": 1,
+      "id": "cmp_r2",
+      "params": {
+        "resistance": 10000
+      },
+      "refDes": "R2"
+    },
+    {
+      "definitionId": "opamp",
+      "definitionVersion": 1,
+      "id": "cmp_u1",
+      "params": {},
+      "refDes": "U1"
+    },
+    {
+      "definitionId": "rail",
+      "definitionVersion": 1,
+      "id": "cmp_vp",
+      "params": {
+        "voltage": 12
+      },
+      "refDes": "VCC1"
+    },
+    {
+      "definitionId": "rail",
+      "definitionVersion": 1,
+      "id": "cmp_vn",
+      "params": {
+        "voltage": -12
+      },
+      "refDes": "VCC2"
+    },
+    {
+      "definitionId": "ground",
+      "definitionVersion": 1,
+      "id": "cmp_gnd",
+      "params": {},
+      "refDes": "GND1"
+    },
+    {
+      "definitionId": "net-label",
+      "definitionVersion": 1,
+      "id": "cmp_in",
+      "params": {
+        "name": "ENTRADA"
+      },
+      "refDes": "NL1"
+    },
+    {
+      "definitionId": "net-label",
+      "definitionVersion": 1,
+      "id": "cmp_out",
+      "params": {
+        "name": "SAIDA"
+      },
+      "refDes": "NL2"
+    }
+  ],
+  "connections": [
+    {
+      "a": {
+        "componentId": "cmp_fg",
+        "pinId": "+"
+      },
+      "b": {
+        "componentId": "cmp_r1",
+        "pinId": "1"
+      },
+      "id": "conn_fg_r1",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_r1",
+        "pinId": "2"
+      },
+      "b": {
+        "componentId": "cmp_u1",
+        "pinId": "IN-"
+      },
+      "id": "conn_r1_inn",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_u1",
+        "pinId": "IN-"
+      },
+      "b": {
+        "componentId": "cmp_r2",
+        "pinId": "1"
+      },
+      "id": "conn_inn_r2",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_r2",
+        "pinId": "2"
+      },
+      "b": {
+        "componentId": "cmp_u1",
+        "pinId": "OUT"
+      },
+      "id": "conn_r2_out",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_u1",
+        "pinId": "IN+"
+      },
+      "b": {
+        "componentId": "cmp_gnd",
+        "pinId": "GND"
+      },
+      "id": "conn_inp_gnd",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_fg",
+        "pinId": "-"
+      },
+      "b": {
+        "componentId": "cmp_gnd",
+        "pinId": "GND"
+      },
+      "id": "conn_fg_gnd",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_u1",
+        "pinId": "V+"
+      },
+      "b": {
+        "componentId": "cmp_vp",
+        "pinId": "V"
+      },
+      "id": "conn_vp",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_u1",
+        "pinId": "V-"
+      },
+      "b": {
+        "componentId": "cmp_vn",
+        "pinId": "V"
+      },
+      "id": "conn_vn",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_in",
+        "pinId": "N"
+      },
+      "b": {
+        "componentId": "cmp_fg",
+        "pinId": "+"
+      },
+      "id": "conn_in",
+      "kind": "wire"
+    },
+    {
+      "a": {
+        "componentId": "cmp_out",
+        "pinId": "N"
+      },
+      "b": {
+        "componentId": "cmp_u1",
+        "pinId": "OUT"
+      },
+      "id": "conn_out",
+      "kind": "wire"
+    }
+  ],
+  "createdAt": "2026-10-19T12:00:00.000Z",
+  "customParts": [],
+  "enclosure": null,
+  "firmware": {
+    "core": "arduino:avr@1.8.8",
+    "files": [
+      {
+        "path": "sketch.ino"
+      }
+    ],
+    "fqbn": "arduino:avr:uno",
+    "libraries": [],
+    "mainFile": "sketch.ino"
+  },
+  "id": "prj_d2j68otsnwhr",
+  "pcb": {
+    "board": {
+      "height": 40,
+      "width": 50
+    },
+    "layers": 2,
+    "mountingHoles": [],
+    "origin": "board-center",
+    "outline": "custom",
+    "placements": {},
+    "routing": "auto",
+    "traces": [],
+    "unit": "mm",
+    "vias": []
+  },
+  "product": {
+    "analysis": {
+      "battery": {
+        "kind": "usb",
+        "mAh": 2000
+      },
+      "loadCases": [],
+      "resolutionTargetUm": 20,
+      "supports": [],
+      "thermal": {
+        "ambientC": 25,
+        "convection": 10
+      },
+      "tolerances": {}
+    },
+    "bodies": [],
+    "camera": null,
+    "detectors": [],
+    "emitters": [],
+    "focus": null,
+    "models": [],
+    "pcb": {
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "visible": true
+    },
+    "sample": null,
+    "unit": "mm",
+    "vision": {
+      "autofocus": {
+        "command": "F{angle}\n",
+        "max": 180,
+        "min": 0,
+        "step": 15
+      },
+      "focusMetric": "laplacian",
+      "measure": {
+        "invert": false,
+        "maxAreaUm2": 20000,
+        "minAreaUm2": 4,
+        "split": true,
+        "threshold": "otsu"
+      },
+      "model": null
+    }
+  },
+  "revision": 30,
+  "schemaVersion": 7,
+  "schematic": {
+    "placements": {
+      "cmp_fg": {
+        "rotation": 0,
+        "x": 6,
+        "y": 16
+      },
+      "cmp_gnd": {
+        "rotation": 0,
+        "x": 20,
+        "y": 24
+      },
+      "cmp_in": {
+        "rotation": 0,
+        "x": 10,
+        "y": 6
+      },
+      "cmp_out": {
+        "rotation": 0,
+        "x": 40,
+        "y": 10
+      },
+      "cmp_r1": {
+        "rotation": 0,
+        "x": 16,
+        "y": 12
+      },
+      "cmp_r2": {
+        "rotation": 0,
+        "x": 28,
+        "y": 6
+      },
+      "cmp_u1": {
+        "rotation": 0,
+        "x": 28,
+        "y": 14
+      },
+      "cmp_vn": {
+        "rotation": 180,
+        "x": 34,
+        "y": 24
+      },
+      "cmp_vp": {
+        "rotation": 0,
+        "x": 28,
+        "y": 2
+      }
+    },
+    "unit": "grid",
+    "wires": {}
+  },
+  "simulation": {
+    "circuit": {
+      "scope": {
+        "channels": [
+          {
+            "color": "#f5c400",
+            "kind": "net",
+            "target": "ENTRADA"
+          },
+          {
+            "color": "#00c2ff",
+            "kind": "net",
+            "target": "SAIDA"
+          }
+        ],
+        "timePerDiv": 0.0002,
+        "voltsPerDiv": 2
+      },
+      "speed": 0.01
+    },
+    "clockHz": 16000000,
+    "engine": "avr8js",
+    "engineVersion": "0.21.1",
+    "speed": 1
+  },
+  "title": "Amplificador inversor",
+  "updatedAt": "2026-10-19T12:00:00.000Z"
+}
